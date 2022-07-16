@@ -7,6 +7,11 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
+import HeaderCoverSection from "../components/HeaderCoverSection";
+import TheMethodSection from "../components/TheMethodSection";
+import MainProductSection from '../components/MainProductSection';
+import MainCoursesSection from "../components/MainCoursesSection";
+import BlogSection from "../components/BlogSection";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
@@ -22,8 +27,21 @@ export const IndexPageTemplate = ({
 
   return (
     <div>
-      <FullWidthImage img={heroImage} title={title} subheading={subheading} />
-      <section className="section section--gradient">
+      <HeaderCoverSection/>
+      <TheMethodSection />
+      <MainProductSection />
+      <BlogSection>
+        <BlogRoll />
+      </BlogSection>
+      <MainCoursesSection />
+      
+
+      {/*
+            
+      <FullWidthImage img={heroImage} title={title} subheading={subheading} />*/}
+      
+     
+     {/*<section className="section section--gradient">
         <div className="container">
           <div className="section">
             <div className="columns">
@@ -53,23 +71,12 @@ export const IndexPageTemplate = ({
                       </Link>
                     </div>
                   </div>
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      Latest stories
-                    </h3>
-                    <BlogRoll />
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/blog">
-                        Read more
-                      </Link>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+  </section>*/}
     </div>
   );
 };

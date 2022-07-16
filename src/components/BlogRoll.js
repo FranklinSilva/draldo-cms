@@ -2,6 +2,72 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+import styled from '@emotion/styled';
+import Theme from '../../config/theme';
+
+
+const ArticleLimitedExcerpt = styled.span`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  padding: 0 0.7rem;
+
+`; 
+
+
+const ArticleHeader = styled.header`
+  padding: 0 0.7rem;
+  color: ${Theme.colors.black.base};
+`; 
+
+
+const ArticleLimitedTitle = styled(Link)`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+
+  font-size: 24px;
+  font-family: Poppins;
+  font-weight: 200;
+  text-decoration: none !important;
+  color: ${Theme.colors.black.base};
+`; 
+
+const ArticleDate = styled.span`
+  font-size: 16px;
+  font-family: Lato;
+  font-weight: 200;
+`; 
+
+const ArticleBox = styled.article`
+    background-color: ${Theme.colors.white.base};
+    border-radius: 4px;
+    position: relative;
+    padding: 1rem 3px;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(43 37 35 / 10%), 0 0px 0 1px rgb(43 37 35 / 2%);
+    color: #4a4a4a;
+`; 
+
+const ArticleActionButton = styled(Link)`
+  font-size: 20px;
+  font-family: Lato;
+  font-weight: 600;
+  text-decoration: none !important;
+  color: ${Theme.colors.primary.base};
+  padding: 0 0.7rem 0;
+
+  &:hover {
+    color: ${Theme.colors.primary.light};
+  }
+`; 
+
 
 class BlogRollTemplate extends React.Component {
   render() {
@@ -9,54 +75,43 @@ class BlogRollTemplate extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div className="columns">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
+            <div className="is-parent column is-4" key={post.id}>
+              <ArticleBox
+                className={`blog-list-item tile is-child ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                          width:
-                            post.frontmatter.featuredimage.childImageSharp
-                              .gatsbyImageData.width,
-                          height:
-                            post.frontmatter.featuredimage.childImageSharp
-                              .gatsbyImageData.height,
-                        }}
-                      />
-                    </div>
-                  ) : null}
+                <ArticleHeader>
                   <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
+                    <ArticleLimitedTitle
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
+                    </ArticleLimitedTitle>
+                    {/*<ArticleDate>
                       {post.frontmatter.date}
-                    </span>
+                    </ArticleDate>*/}
                   </p>
-                </header>
+                </ArticleHeader>
+                {post.frontmatter.featuredimage ? (
+                  <PreviewCompatibleImage 
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `Imagem principal do post ${post.frontmatter.title}`
+                    }}
+                  />
+                  ) : null}
                 <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+                  <ArticleLimitedExcerpt>{post.excerpt}</ArticleLimitedExcerpt>
+                  <br/>
+                  <ArticleActionButton to={post.fields.slug}>
+                    VER MAIS
+                  </ArticleActionButton>
                 </p>
-              </article>
+              </ArticleBox>
             </div>
           ))}
       </div>
@@ -92,7 +147,7 @@ export default function BlogRoll() {
                 frontmatter {
                   title
                   templateKey
-                  date(formatString: "MMMM DD, YYYY")
+                  date(formatString: "DD/MM/YYYY")
                   featuredpost
                   featuredimage {
                     childImageSharp {

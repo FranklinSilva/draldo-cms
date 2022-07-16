@@ -1,23 +1,46 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import styled from '@emotion/styled';
 
-import logo from "../img/logo.svg";
 import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
-import twitter from "../img/social/twitter.svg";
-import vimeo from "../img/social/vimeo.svg";
+import Theme from '../../config/theme';
+import blackbg from '../../static/img/blackbg.jpg';
+import GenericSectionTitle from '../components/shared/GenericSectionTitle';
 
+import ContactCard from "../components/shared/ContactCard"
+import PortalWrapper from "../components/shared/Portal/PortalWrapper";
 const Footer = class extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: "14em", height: "10em" }}
-          />
-        </div>
+      <Footers className="footer has-background-black has-text-white-ter">
+        <GenericSectionTitle text="Dúvidas? Fale comigo!" styles={{color: Theme.colors.white.base, paddingLeft: 30}} />
+        <ContactContainer>
+          <ContactCard     
+            city='Salvador'
+            email='email@example.com'
+            phone='(71)99999-9999'
+            address="Av Tancredo Neves número 1234, sala 2022"
+            url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15551.284703101517!2d-38.4534453!3d-12.983286750000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71616510cac211f%3A0xd5a41097a534a48b!2sSalvador%20Shopping!5e0!3m2!1spt-BR!2sus!4v1657597772194!5m2!1spt-BR!2sus" />
+          <ContactCard     
+            city='Viória da Conquista'
+            email='email@example.com'
+            phone='(71)99999-9999'
+            address="Av Tancredo Neves número 1234, sala 2022"
+            url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15551.284703101517!2d-38.4534453!3d-12.983286750000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71616510cac211f%3A0xd5a41097a534a48b!2sSalvador%20Shopping!5e0!3m2!1spt-BR!2sus!4v1657597772194!5m2!1spt-BR!2sus" />
+          <ContactCard     
+            city='São Paulo'
+            email='email@example.com'
+            phone='(71)99999-9999'
+            address="Av Tancredo Neves número 1234, sala 2022" 
+            url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15551.284703101517!2d-38.4534453!3d-12.983286750000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71616510cac211f%3A0xd5a41097a534a48b!2sSalvador%20Shopping!5e0!3m2!1spt-BR!2sus!4v1657597772194!5m2!1spt-BR!2sus" />
+        </ContactContainer>
+        {/*
         <div className="content has-text-centered has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
             <div style={{ maxWidth: "100vw" }} className="columns">
@@ -44,7 +67,7 @@ const Footer = class extends React.Component {
                         Form Examples
                       </Link>
                     </li>
-                    <li>
+                   <li>
                       <a
                         className="navbar-item"
                         href="/admin/"
@@ -81,14 +104,6 @@ const Footer = class extends React.Component {
                     style={{ width: "1em", height: "1em" }}
                   />
                 </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
                 <a title="instagram" href="https://instagram.com">
                   <img
                     src={instagram}
@@ -96,20 +111,29 @@ const Footer = class extends React.Component {
                     style={{ width: "1em", height: "1em" }}
                   />
                 </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: "1em", height: "1em" }}
-                  />
-                </a>
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </div>*/}
+      </Footers>
     );
   }
 };
+
+const Footers = styled.footer`
+background: url(${blackbg}) no-repeat no-repeat bottom right;
+
+`; 
+
+const ContactContainer = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+padding-bottom: 2rem;
+
+@media screen and (min-width: ${Theme.breakpoints.s}) {
+  flex-direction: row;
+}
+`;
 
 export default Footer;
