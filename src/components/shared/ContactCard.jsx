@@ -100,7 +100,7 @@ const Text = styled.h3`
   font-family: Poppins;
   color: ${Theme.colors.black.light};
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 400;
   margin:0;
 `;
 
@@ -108,7 +108,7 @@ const Address = styled.p`
   font-family: Poppins;
   color: ${Theme.colors.black.light};
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 400;
   margin:0;
   padding: 2rem;
   text-align: center;

@@ -39,6 +39,6 @@ const Container = styled.div`
 const Text = styled.h3`
   font-family: Poppins;
   font-size: 34px;
-  font-weight: 200;
+  font-weight: 400;
   margin:0;
 `;

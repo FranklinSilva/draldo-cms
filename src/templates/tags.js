@@ -2,6 +2,9 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
+import InternalHeader from "../components/internalHeader";
+import styled from '@emotion/styled';
+import Theme from '../../config/theme';
 
 class TagRoute extends React.Component {
   render() {
@@ -9,7 +12,7 @@ class TagRoute extends React.Component {
     const postLinks = posts.map((post) => (
       <li key={post.node.fields.slug}>
         <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
+          <LinkInterno className="is-size-2">{post.node.frontmatter.title}</LinkInterno>
         </Link>
       </li>
     ));
@@ -18,10 +21,11 @@ class TagRoute extends React.Component {
     const totalCount = this.props.data.allMarkdownRemark.totalCount;
     const tagHeader = `${totalCount} post${
       totalCount === 1 ? "" : "s"
-    } tagged with “${tag}”`;
+    } tagueados com “${tag}”`;
 
     return (
       <Layout>
+        <InternalHeader/>
         <section className="section">
           <Helmet title={`${tag} | ${title}`} />
           <div className="container content">
@@ -30,10 +34,10 @@ class TagRoute extends React.Component {
                 className="column is-10 is-offset-1"
                 style={{ marginBottom: "6rem" }}
               >
-                <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
+                <h3 className="title is-size-4 is-bold-light" >{tagHeader}</h3>
                 <ul className="taglist">{postLinks}</ul>
                 <p>
-                  <Link to="/tags/">Browse all tags</Link>
+                  <Link to="/tags/">Veja todas as Tags</Link>
                 </p>
               </div>
             </div>
@@ -45,6 +49,13 @@ class TagRoute extends React.Component {
 }
 
 export default TagRoute;
+
+const LinkInterno = styled.h2`
+  &:hover {
+    color: ${Theme.colors.primary.base};
+    text-decoration: underline;
+  }
+`;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {

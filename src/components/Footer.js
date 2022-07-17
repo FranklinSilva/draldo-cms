@@ -18,7 +18,7 @@ const Footer = class extends React.Component {
 
   render() {
     return (
-      <Footers className="footer has-background-black has-text-white-ter">
+      <Footers className="footer has-background-black has-text-white-ter" id="footer">
         <GenericSectionTitle text="Dúvidas? Fale comigo!" styles={{color: Theme.colors.white.base, paddingLeft: 30}} />
         <ContactContainer>
           <ContactCard     

@@ -34,7 +34,7 @@ const ArticleLimitedTitle = styled(Link)`
 
   font-size: 24px;
   font-family: Poppins;
-  font-weight: 200;
+  font-weight: 400;
   text-decoration: none !important;
   color: ${Theme.colors.black.base};
 `; 
@@ -42,7 +42,7 @@ const ArticleLimitedTitle = styled(Link)`
 const ArticleDate = styled.span`
   font-size: 16px;
   font-family: Lato;
-  font-weight: 200;
+  font-weight: 400;
 `; 
 
 const ArticleBox = styled.article`

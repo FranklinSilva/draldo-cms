@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import InternalHeader from "../components/internalHeader";
 
 // eslint-disable-next-line
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
@@ -37,6 +38,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <InternalHeader/>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

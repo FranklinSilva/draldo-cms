@@ -129,21 +129,21 @@ const Navbar = class extends React.Component {
           <NavItem to="/" onClick={() => this.toggleHamburger()}>
             Página Inicial
           </NavItem>
-          <NavItem to="/about" onClick={() => this.toggleHamburger()}>
-            Sobre
+          <NavItem to="/schedule" onClick={() => this.toggleHamburger()}>
+            Agende uma Consulta
           </NavItem>
-          <NavItem to="/products" onClick={() => this.toggleHamburger()}>
+          {/*<NavItem to="/products" onClick={() => this.toggleHamburger()}>
             Produtos
-          </NavItem>
+    </NavItem>*/}
           <NavItem to="/blog" onClick={() => this.toggleHamburger()}>
             Blog
           </NavItem>
-          <NavItem to="/contact" onClick={() => this.toggleHamburger()}>
+          <NavItem to="/#footer" onClick={() => this.toggleHamburger()}>
             Contato
           </NavItem>
-          <NavItem to="/contact/examples" onClick={() => this.toggleHamburger()}>
+          {/*<NavItem to="/contact/examples" onClick={() => this.toggleHamburger()}>
             Form Examples
-          </NavItem>
+  </NavItem>*/}
         </NavItems>
       </Nav>
       <Hamburguer
