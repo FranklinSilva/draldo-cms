@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import GoogleFontLoader from 'react-google-font-loader';
+import GoogleFontLoader from '../components/modified/GoogleFontLoader';
 
 import Theme from '../../config/theme';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import GoogleFontLoader from 'react-google-font-loader';
+import GoogleFontLoader from '../components/modified/GoogleFontLoader';
 
 import cover from '../../static/aldo/cover.png'
 import texture from "../../static/img/texture.png";
