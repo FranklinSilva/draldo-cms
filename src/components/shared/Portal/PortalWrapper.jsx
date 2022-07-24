@@ -51,7 +51,7 @@ export default class PortalWrapper extends React.Component {
   
   PortalWrapper.defaultProps = {
     identifier: '',
-    styles: StyleSheet,
+    styles: {},
   };
 
 const Container = styled.div`

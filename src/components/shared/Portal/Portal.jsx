@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 // Use a ternary operator to make sure that the document object is defined
 const root = typeof document !== `undefined` ? document.getElementById('___gatsby') : null;
 if(root){
-    let portalelement = document.createElement('div', 'portal');
+    let portalelement = typeof document !== `undefined` ? document.createElement('div', 'portal'): null;
     portalelement.id = "portal"
     root.parentNode.insertBefore(portalelement, root.nextSibling)
 }

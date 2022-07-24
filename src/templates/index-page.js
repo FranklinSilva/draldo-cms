@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
-import FullWidthImage from "../components/FullWidthImage";
 import HeaderCoverSection from "../components/HeaderCoverSection";
 import TheMethodSection from "../components/TheMethodSection";
 import MainProductSection from '../components/MainProductSection';
@@ -23,7 +21,6 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const heroImage = getImage(image) || image;
 
   return (
     <div>

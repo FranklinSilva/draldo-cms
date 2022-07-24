@@ -220,7 +220,7 @@ const HeaderCoverSection = ({ children, title, date }) => {
 
     <StyledLink to="/">
       <Link to="/">
-      <Logo src={logo} alt="Dr Michelle Sartori Logo" />
+      <Logo src={logo} alt="Dr Aldo Grisi Logo" />
       </Link>
     </StyledLink>
 
