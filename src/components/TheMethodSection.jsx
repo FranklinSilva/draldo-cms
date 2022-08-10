@@ -17,7 +17,11 @@ const Wrapper = styled.section`
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto 3fr;
   grid-gap: 20px;
-  padding: 2rem 4rem 3rem;
+  padding: 2rem 1rem 3rem;
+
+  @media screen and (min-width: ${Theme.breakpoints.m}) {
+    padding: 2rem 4rem 3rem;
+  }
 
   @media screen and (max-width: ${Theme.breakpoints.l}) {
     grid-template-columns: 1fr;

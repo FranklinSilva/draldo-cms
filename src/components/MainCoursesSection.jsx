@@ -20,10 +20,15 @@ const Wrapper = styled.section`
 
   display: grid;
   grid-template-columns: 4fr 2fr;
-  padding: 2rem 4rem 3rem; 
   grid-gap: 40px;
 
   & div.implante-box {
+  }
+
+  padding: 2rem 1rem 3rem;
+
+  @media screen and (min-width: ${Theme.breakpoints.m}) {
+    padding: 2rem 4rem 3rem;
   }
 
   @media screen and (max-width: ${Theme.breakpoints.l}) {

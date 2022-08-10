@@ -23,7 +23,11 @@ const Wrapper = styled.section`
   display: flex;
 
   & div.implante-box {
-    padding: 2rem 4rem 3rem; 
+    padding: 2rem 1rem 3rem;
+
+    @media screen and (min-width: ${Theme.breakpoints.m}) {
+      padding: 2rem 4rem 3rem;
+    }
   }
 
   & img {
